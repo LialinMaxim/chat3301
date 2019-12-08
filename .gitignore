@@ -1,0 +1,8 @@
+__pycache__
+.idea
+.project
+.pydevproject
+.env
+
+venv
+app.db

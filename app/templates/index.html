@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    {% if mails %}
+        <h1>INBOX MAILS: {{ mails_per_page }} of {{ len_inbox_mails }}</h1>
+
+        {{ wtf.quick_form(form, form_type='inline', button_map={'submit_filter':'primary'}) }}
+
+        <div>
+            {% for mail in mails %}
+                {% include '_email.html' %}
+            {% endfor %}
+        </div>
+        <br><br><br><br>
+
+    {% else %}
+        <h1>All messages are processed from INBOX!</h1>
+        <p><strong>Good job :)</strong></p>
+    {% endif %}
+{% endblock %}
